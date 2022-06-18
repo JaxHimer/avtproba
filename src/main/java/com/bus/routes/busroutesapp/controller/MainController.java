@@ -16,4 +16,36 @@ import javax.validation.Valid;
 @Controller
 @Slf4j
 public class MainController {
+
+    private final UserServiceImpl service;
+
+    public MainController(UserServiceImpl service) {
+        this.service = service;
+    }
+
+    @GetMapping("/")
+    public String index(HttpServletRequest httpServletRequest, Model model) {
+        model.addAttribute("test", "test");
+        return "index";
+    }
+
+    @GetMapping("/registration")
+    public String registration() {
+        return "users/registration";
+    }
+
+    @GetMapping("/acceptEmail/{userId}")
+    public String acceptEmail(@PathVariable Integer userId) {
+        service.verifyEmail(userId);
+        return "users/registration";
+    }
+
+    @PostMapping("/registration")
+    public String addUser(@ModelAttribute("userForm") @Valid User user) {
+        log.info(user.toString());
+        user.setRoleId(1L);
+        user.setEmailSubmitted(false);
+        service.create(user);
+        return "redirect:login";
+    }
 }

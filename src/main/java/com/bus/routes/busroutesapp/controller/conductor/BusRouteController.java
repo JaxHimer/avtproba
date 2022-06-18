@@ -14,5 +14,33 @@ import javax.validation.Valid;
 @Slf4j
 @RequestMapping("/conductor/bus-route")
 public class BusRouteController {
-    
+
+    private final MyService<BusRoute> service;
+    private final BusServiceImpl busService;
+
+    public BusRouteController(MyService<BusRoute> service, BusServiceImpl busService) {
+        this.service = service;
+        this.busService = busService;
+    }
+
+    @GetMapping("/add/{routeId}")
+    public String index(Model model, @PathVariable Integer routeId) {
+        model.addAttribute("buses", busService.getAll());
+        model.addAttribute("routeId", routeId);
+        return "conductor/route/addBusToRoute";
+
+    }
+
+    @PostMapping("/add")
+    public String addBusRoute(@ModelAttribute("busRouteForm") @Valid BusRoute busRoute) {
+        log.info(busRoute.toString());
+        service.create(busRoute);
+        return "redirect:/conductor/route";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteBusRoute(@PathVariable Integer id) {
+        service.delete(service.getOne(id));
+        return "redirect:/conductor/route";
+    }
 }
