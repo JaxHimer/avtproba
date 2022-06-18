@@ -1,0 +1,24 @@
+<!--Бронь маршрута-->
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить автобус</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <!--        Форма регистрации-->
+    <!--        action="" - url на который будут отправлены данные-->
+    <!--        object="" - имя объекта в котором будут хранится данные (нужно чтобы потом в контроллере их распарсить)-->
+    <form method="POST" th:action="'/user/bus-route/book/' + ${routeId} + '/' + ${busRouteId} + '/' + ${#authentication.getPrincipal().getUserId()}" th:object="${bookBusForm}">
+        <div class="mb-3">
+            <label for="amount" class="form-label">Количество билетов</label>
+            <input name="amount" type="text" class="form-control" id="amount">
+        </div>
+        <button type="submit" class="btn btn-primary">Забронировать</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!--Список маршрутов для кондуктора-->
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html"
+      layout:decorate="~{layout}"
+      lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Список маршрутов</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <a href="route/add" class="btn btn-primary" role="button" aria-disabled="true">Добавить</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Номер маршрута</th>
+            <th scope="col">Описание</th>
+            <th scope="col">Точка начала маршрута</th>
+            <th scope="col">Точка окончания маршрута</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+<!--        Перебор всех маршрутов-->
+        <tr th:each="route: ${routes}">
+            <td th:text="${route.routeNumber}"></td>
+            <td th:text="${route.description}"></td>
+            <td th:text="${route.routeStartPoint}"></td>
+            <td th:text="${route.routeEndPoint}"></td>
+            <td>
+                <a th:href="'/conductor/route/delete/' + ${route.routeId}" class="btn btn-primary" role="button" aria-disabled="true">Удалить</a>
+            </td>
+            <td>
+                <a th:href="'/conductor/route/' + ${route.routeId}" class="btn btn-primary" role="button" aria-disabled="true">Подробнее</a>
+            </td>
+            <td>
+                <a th:href="'/conductor/bus-route/add/' + ${route.routeId}" class="btn btn-primary" role="button" aria-disabled="true">Добавить автобус</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

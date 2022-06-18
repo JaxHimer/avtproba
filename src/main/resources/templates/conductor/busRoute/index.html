@@ -1,0 +1,53 @@
+<!--Список маршрутов с автобусами-->
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"
+      lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Список маршрутов</title>
+</head>
+<body>
+<div  layout:fragment="content">
+
+    <a href="add" class="btn btn-primary" role="button" aria-disabled="true">Добавить</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Номер маршрута</th>
+            <th scope="col">Описание</th>
+            <th scope="col">Место начала движения</th>
+            <th scope="col">Место окончания движения</th>
+            <th scope="col">Автобус</th>
+            <th scope="col">Время начала движения</th>
+            <th scope="col">Время окончания движения</th>
+            <th scope="col">Продолжительность маршрута</th>
+            <th scope="col">Свободные места</th>
+            <th scope="col">Цена</th>
+        </tr>
+        </thead>
+        <tbody>
+<!--        Перебор маршрутов с автобусами-->
+        <tr th:each="busRoute: ${busRoutes}">
+            <td th:text="${busRoute.routeNum}"></td>
+            <td th:text="${busRoute.description}"></td>
+            <td th:text="${busRoute.routeStart}"></td>
+            <td th:text="${busRoute.routeEnd}"></td>
+            <td th:text="${busRoute.busNumber}"></td>
+            <td th:text="${busRoute.startDate}"></td>
+            <td th:text="${busRoute.endDate}"></td>
+            <td th:text="${busRoute.duration}"></td>
+            <td th:text="${busRoute.freePlaceAmount}"></td>
+            <td th:text="${busRoute.price}"></td>
+            <td>
+                <a th:href="'/conductor/bus-route/delete/' + ${busRoute.busRouteId}" class="btn btn-primary" role="button" aria-disabled="true">Удалить</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!--Список броней у конкретного пользователя-->
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"
+      lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Список маршрутов</title>
+</head>
+<body>
+<div  layout:fragment="content">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Номер брони</th>
+            <th scope="col">Количество забронированных мест</th>
+            <th scope="col">Статус</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+<!--        Перебор броней пользователя-->
+        <tr th:each="userRoute: ${userRoutes}">
+            <td th:text="${userRoute.bookingNum}"></td>
+            <td th:text="${userRoute.amount}"></td>
+            <td th:text="${userRoute.status}"></td>
+            <td>
+                <a th:href="'/admin/user/delete/' + ${userRoute.userRouteId}" class="btn btn-primary" role="button" aria-disabled="true">Отменить бронь</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

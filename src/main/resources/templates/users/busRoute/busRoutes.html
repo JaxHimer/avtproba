@@ -1,0 +1,50 @@
+<!--Список маршрутов с автобусами (для пользователя)-->
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"
+      lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Список маршрутов</title>
+</head>
+<body>
+<div  layout:fragment="content">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Номер маршрута</th>
+            <th scope="col">Описание</th>
+            <th scope="col">Время начала</th>
+            <th scope="col">Время окончания</th>
+            <th scope="col">Номер автобуса</th>
+            <th scope="col">Точка начала движения</th>
+            <th scope="col">Точка окончания движения</th>
+            <th scope="col">Стоимость</th>
+            <th scope="col">Свободные места</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+<!--        Перебор маршрутов-->
+        <tr th:each="busRoute: ${busRoutes}">
+            <td th:text="${busRoute.routeNum}"></td>
+            <td th:text="${busRoute.description}"></td>
+            <td th:text="${busRoute.startDate}"></td>
+            <td th:text="${busRoute.endDate}"></td>
+            <td th:text="${busRoute.routeStart}"></td>
+            <td th:text="${busRoute.routeEnd}"></td>
+            <td th:text="${busRoute.price}"></td>
+            <td th:text="${busRoute.freePlaceAmount}"></td>
+            <td>
+                <a th:href="'/user/bus-route/book/' + ${busRoute.routeId} + '/' + ${busRoute.busRouteId}" class="btn btn-primary" role="button" aria-disabled="true">Забронировать</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

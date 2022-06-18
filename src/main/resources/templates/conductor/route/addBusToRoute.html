@@ -1,0 +1,62 @@
+<!--Добавление автобуса к маршруту-->
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить маршрут</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <!--        Форма добавления автобуса к маршруту-->
+    <!--        action="" - url на который будут отправлены данные-->
+    <!--        object="" - имя объекта в котором будут хранится данные (нужно чтобы потом в контроллере их распарсить)-->
+    <form method="POST" th:action="@{/conductor/bus-route/add}" th:object="${busRouteForm}">
+        <div class="modal-body">
+            <input type="hidden" name="routeId"
+                   th:value="${routeId}">
+            <div class="mb-3">
+                <label for="bus" class="form-label">Автобус</label>
+                <select name="busId" class="form-control" id="bus">
+                    <option selected disabled value="0">Выберите автобус</option>
+                    <option th:each="bus : ${buses}" th:value="${bus.busId}" th:text="${bus.busNumber}"></option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <!--TODO Время && Дата-->
+                <label for="startDate" class="form-label">Время начала маршрута</label>
+                <input name="startDate" type="date" class="form-control" id="startDate">
+            </div>
+
+            <div class="mb-3">
+                <!--TODO Время && Дата-->
+                <label for="endDate" class="form-label">Время окончания маршрута</label>
+                <input name="endDate" type="date" class="form-control" id="endDate">
+            </div>
+
+            <div class="mb-3">
+                <label for="duration" class="form-label">Продолжительность маршрута</label>
+                <input name="duration" type="text" class="form-control" id="duration">
+            </div>
+
+            <div class="mb-3">
+                <label for="freePlaces" class="form-label">Свободные места</label>
+                <input name="freePlaces" type="text" class="form-control" id="freePlaces">
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label">Цена</label>
+                <input name="price" type="text" class="form-control" id="price">
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

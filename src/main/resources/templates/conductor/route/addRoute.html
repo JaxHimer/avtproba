@@ -1,0 +1,40 @@
+<!--Добавление маршрута (кондуктором)-->
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить маршрут</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <!--        Форма добавления маршрута-->
+    <!--        action="" - url на который будут отправлены данные-->
+    <!--        object="" - имя объекта в котором будут хранится данные (нужно чтобы потом в контроллере их распарсить)-->
+    <form method="POST" th:action="@{/conductor/route/add}" th:object="${routeForm}">
+        <div class="mb-3">
+            <label for="routeNumber" class="form-label">Номер маршрута</label>
+            <input name="routeNumber" type="text" class="form-control" id="routeNumber">
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Описание</label>
+            <input name="description" type="text" class="form-control" id="description">
+        </div>
+
+        <div class="mb-3">
+            <label for="routeStartPoint" class="form-label">Точка начала маршрута</label>
+            <input name="routeStartPoint" type="text" class="form-control" id="routeStartPoint">
+        </div>
+
+        <div class="mb-3">
+            <label for="routeEndPoint" class="form-label">Точка окончания маршрута</label>
+            <input name="routeEndPoint" type="text" class="form-control" id="routeEndPoint">
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить маршрут</button>
+    </form>
+</div>
+
+</body>
+</html>

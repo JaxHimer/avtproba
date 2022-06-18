@@ -1,0 +1,43 @@
+<!--Страница регистрации-->
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"
+      lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Регистрация</title>
+</head>
+<body>
+    <div layout:fragment="content">
+<!--        Форма регистрации-->
+<!--        action="/registration" - url на который будут отправлены данные-->
+<!--        object="userForm" - имя объекта в котором будут хранится данные (нужно чтобы потом в контроллере их распарсить)-->
+        <form method="POST" th:action="@{/registration}" th:object="${userForm}">
+            <div class="mb-3">
+                <label for="email" class="form-label">Почта</label>
+                <input name="email" type="email" class="form-control" id="email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Пароль</label>
+                <input name="password" type="password" class="form-control" id="password">
+            </div>
+            <div class="mb-3">
+                <label for="firstName" class="form-label">Имя</label>
+                <input name="firstName" type="text" class="form-control" id="firstName">
+            </div>
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Фамилия</label>
+                <input name="lastName" type="text" class="form-control" id="lastName">
+            </div>
+            <div class="mb-3">
+                <label for="middleName" class="form-label">Отчество</label>
+                <input name="middleName" type="text" class="form-control" id="middleName">
+            </div>
+            <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+        </form>
+    </div>
+</body>
+</html>

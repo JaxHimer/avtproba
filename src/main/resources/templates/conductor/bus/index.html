@@ -1,0 +1,38 @@
+<!--Список автобусов-->
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"
+      lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Список автобусов</title>
+</head>
+<body>
+    <div  layout:fragment="content">
+
+        <a href="bus/add" class="btn btn-primary" role="button" aria-disabled="true">Добавить</a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Номер</th>
+                <th scope="col">Информация</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+<!--            Перебор автобусов-->
+            <tr th:each="bus: ${buses}">
+                <td th:text="${bus.busNumber}"></td>
+                <td th:text="${bus.busInfo}"></td>
+                <td>
+                    <a th:href="'/conductor/bus/delete/' + ${bus.busId}" class="btn btn-primary" role="button" aria-disabled="true">Удалить</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
