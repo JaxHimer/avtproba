@@ -25,106 +25,106 @@
     <dependencies>
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity3</artifactId>
+            <artifactId>thymeleaf-extras-springsecurity3</artifactId><!--Thymeleaf — это опенсорсный серверный шаблонизатор для различных типов приложений как веб -->
             <version>3.0.4.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
+            <artifactId>commons-lang3</artifactId><!-- Она содержит множество полезных функций на все случаи жизни начиная от генерации случайных чисел, до обработки строк. -->
             <version>3.12.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <artifactId>spring-boot-starter-jdbc</artifactId><!--Spring Boot автоматически регистрирует бины DataSource, EntityManagerFactory, TransactionManager и считывает информацию для подключения к базе данных из файла application.properties -->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
+            <artifactId>spring-boot-starter-validation</artifactId><!--роводить валидацию этих данных: заполнены ли обязательные поля, записан ли email и телефон в нужном формате и так далее. -->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId><!--spring-boot-starter-mail - Отправка электронных писем -->
+            <artifactId>spring-boot-starter-mail</artifactId><!-- простая абстракция для отправки электронной почты, а Spring Boot производит автоматическую настройку-->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-mail</artifactId>
+            <artifactId>spring-boot-starter-security</artifactId><!--среда аутентификации, авторизации и контроля доступа. Это стандартный фреймворк, который используется для защиты приложений на основе Spring -->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId><!--  могли отображать файлы, которые поступают из контролеря (пример массивы на языке java коректно отображать  -->
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <groupId>org.springframework.boot</groupId><!--starter-web зависимость которая позволяет реализовать схему MVC  -->
+            <artifactId>spring-boot-starter-web</artifactId><!--MVC схема проектирования модел. шаблонов. контролер. -->
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+            <groupId>org.thymeleaf.extras</groupId><!-- thymeleaf-extras-springsecurity5 - это расширение Thymeleaf для управления отображением веб-элементов на веб-страницах.-->
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId><!-- -->
         </dependency>
         <dependency>
             <groupId>nz.net.ultraq.thymeleaf</groupId>
-            <artifactId>thymeleaf-layout-dialect</artifactId>
+            <artifactId>thymeleaf-layout-dialect</artifactId><!-- -->
             <version>3.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
+            <artifactId>spring-boot-devtools</artifactId><!-- -->
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
+            <artifactId>postgresql</artifactId><!-- -->
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <artifactId>lombok</artifactId><!-- -->
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <artifactId>spring-boot-starter-tomcat</artifactId><!-- -->
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <artifactId>spring-boot-starter-test</artifactId><!-- -->
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
+            <artifactId>spring-security-test</artifactId><!-- -->
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
-            <artifactId>bootstrap</artifactId>
+            <artifactId>bootstrap</artifactId><!-- -->
             <version>5.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
-            <artifactId>jquery</artifactId>
+            <artifactId>jquery</artifactId><!-- -->
             <version>3.5.1</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
-            <artifactId>bootstrap-datepicker</artifactId>
+            <artifactId>bootstrap-datepicker</artifactId><!-- -->
             <version>1.7.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
+            <artifactId>spring-boot-starter-validation</artifactId><!-- роводить валидацию этих данных: заполнены ли обязательные поля, записан ли email и телефон в нужном формате и так далее. -->
         </dependency>
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <artifactId>mysql-connector-java</artifactId><!--подключение mysql (база данных) -->
             <version>8.0.29</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
+            <artifactId>spring-boot-starter-validation</artifactId><!--роводить валидацию этих данных: заполнены ли обязательные поля, записан ли email и телефон в нужном формате и так далее. -->
         </dependency>
     </dependencies>
 
