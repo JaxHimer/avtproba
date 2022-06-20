@@ -6,12 +6,12 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/> <!-- lookup parent from repository поиск родительского элемента из репозитория-->
     </parent>
     <groupId>com.bus.routes</groupId>
-    <artifactId>BusRoutesApp</artifactId>
+    <artifactId>BusRoutesApp</artifactId><!--//artifactId - название проекта.-->
     <version>1.0</version>
-    <packaging>war</packaging>
+    <packaging>war</packaging><!--Тег packaging определяет какого типа файл будет создаваться как результат сборки. Возможные вариант pom, jar, war, -->
     <name>BusRoutesApp</name>
     <description>BusRoutesApp</description>
     <properties>
@@ -26,10 +26,10 @@
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity3</artifactId><!--Thymeleaf — это опенсорсный серверный шаблонизатор для различных типов приложений как веб -->
-            <version>3.0.4.RELEASE</version>
+            <version>3.0.4.RELEASE</version><!--это расширение Thymeleaf для управления отображением веб-элементов на веб-страницах.- -->
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
+            <groupId>org.apache.commons</groupId><!-- Apache Commons Lang, пакет служебных классов Java для классов, которые находятся в иерархии java.lang или считаются настолько стандартными, что оправдывают существование в java.lang.-->
             <artifactId>commons-lang3</artifactId><!-- Она содержит множество полезных функций на все случаи жизни начиная от генерации случайных чисел, до обработки строк. -->
             <version>3.12.0</version>
         </dependency>
@@ -50,7 +50,7 @@
             <artifactId>spring-boot-starter-security</artifactId><!--среда аутентификации, авторизации и контроля доступа. Это стандартный фреймворк, который используется для защиты приложений на основе Spring -->
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
+            <groupId>org.springframework.boot</groupId><!--подключаем из springframework - thymeleaf  что бы внутри шаблонов html файл. -->
             <artifactId>spring-boot-starter-thymeleaf</artifactId><!--  могли отображать файлы, которые поступают из контролеря (пример массивы на языке java коректно отображать  -->
         </dependency>
         <dependency>
@@ -68,7 +68,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId><!-- -->
+            <artifactId>spring-boot-devtools</artifactId><!--devtools зависимость которая позволяет локальный сервер -->
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
@@ -99,7 +99,7 @@
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
-            <artifactId>bootstrap</artifactId><!-- -->
+            <artifactId>bootstrap</artifactId><!--//Bootstrap включает  шаблоны HTML, шаблоны CSS и Javascript, а также готовые базовые вещи, такие как: типографика, формы, кнопки, таблицы, навигация, модальные окна, карусели изображений и другие. В  Bootstrap имеется  Javascript-плагин -->
             <version>5.0.0</version>
         </dependency>
         <dependency>
@@ -108,7 +108,7 @@
             <version>3.5.1</version>
         </dependency>
         <dependency>
-            <groupId>org.webjars</groupId>
+            <groupId>org.webjars</groupId><!--WebJars - это веб-библиотека клиента (например, jQuery и Bootstrap) в файле JAR (Java Archive). -->
             <artifactId>bootstrap-datepicker</artifactId><!-- -->
             <version>1.7.1</version>
         </dependency>
@@ -136,7 +136,7 @@
                 <configuration>
                     <excludes>
                         <exclude>
-                            <groupId>org.projectlombok</groupId>
+                            <groupId>org.projectlombok</groupId><!--lombok  библиотека для сокращения кода в классах  и расширения функциональности джава -->
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
